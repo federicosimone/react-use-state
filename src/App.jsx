@@ -35,7 +35,8 @@ const languages = [
 ];
 
 function App() {
-  //const [count, setCount] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
 
   return (
     <>
@@ -49,18 +50,31 @@ function App() {
             <ul className="d-flex list-unstyled gap-3">
 
               {
-                languages.map((language) => {
-                  return <li key={language.id}><button className="btn btn-primary">{language.title}</button></li>
+                languages.map((language, index) => {
+                  return <li key={language.id}><button className="btn btn-primary" onClick={() => setSelectedIndex(() => index)}>{language.title}</button></li>
                 })
               }
             </ul>
           </div>
+          <div className="col">
+            <div className="card" style={{ width: '18rem' }}>
+              <div className="card-body">
+                <h2 className="card-title">
+                  {languages[selectedIndex].title}
+                </h2>
+                <p className="card-text">
+                  {languages[selectedIndex].description}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div >
 
-      {/*button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>*/}
+
+      {/*<button onClick={() => setIndex((index) => index)}>
+        count is {index}
+      </button>*/}
 
     </>
   )
