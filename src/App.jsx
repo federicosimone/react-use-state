@@ -41,7 +41,7 @@ const languages = [
 ];
 
 function App() {
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(-1)
 
 
 
@@ -49,7 +49,7 @@ function App() {
   return (
     <>
 
-      <nav className="mt-1 ms-2">
+      <nav className="pt-1 ps-2">
         <h1>Learn Web Development</h1>
       </nav>
       <div className="container mt-5">
@@ -68,15 +68,23 @@ function App() {
           </div>
           <div className="col">
             <div className="card" style={{ width: '18rem' }}>
-              <div className="card-body">
-                <h2 className="card-title">
-                  {languages[selectedIndex].title}
-                </h2>
-                <p className="card-text">
-                  {languages[selectedIndex].description}
-                </p>
-                <img className="image" src={languages[selectedIndex].img} alt="logo" />
-              </div>
+              {selectedIndex >= 0 ?
+                <div className="card-body">
+                  <h2 className="card-title">
+                    {languages[selectedIndex].title}
+                  </h2>
+                  <p className="card-text">
+                    {languages[selectedIndex].description}
+                  </p>
+                  <img className="image" src={languages[selectedIndex].img} alt="logo" />
+                </div>
+                : <div className="card-body"><h2 className="card-title">Non è stato selezionato nessun linguaggio</h2></div>
+              }
+
+
+
+
+
             </div>
           </div>
         </div>
