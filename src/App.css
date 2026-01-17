@@ -10,3 +10,8 @@
   border-color: black;
   color: black;
 }
+
+.image {
+  width: 100px;
+  height: 100px;
+}
