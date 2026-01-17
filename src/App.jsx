@@ -38,6 +38,8 @@ function App() {
   const [selectedIndex, setSelectedIndex] = useState(0)
 
 
+
+
   return (
     <>
 
@@ -51,7 +53,9 @@ function App() {
 
               {
                 languages.map((language, index) => {
-                  return <li key={language.id}><button className="btn btn-primary" onClick={() => setSelectedIndex(() => index)}>{language.title}</button></li>
+
+                  let selected = selectedIndex == index ? "yellow" : "";
+                  return <li key={language.id}><button className={`btn btn-primary ${selected}`} onClick={() => setSelectedIndex(() => index)}>{language.title}</button></li>
                 })
               }
             </ul>
